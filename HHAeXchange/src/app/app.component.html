@@ -1,0 +1,36 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>Hospital Statistics</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+<h4 class="header">Period Year:2015</h4>
+<div class="container">
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Select State</mat-label>
+      <mat-select
+        formControlName="state"
+        required
+        (selectionChange)="onStateSelected()"
+      >
+        <mat-option
+          *ngFor="let measure of publicHealthMeasures"
+          [value]="measure.region"
+        >
+          {{ measure.region }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div *ngIf="!myForm.get('state').hasError('required')">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <app-widget></app-widget>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-chart></app-chart>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
