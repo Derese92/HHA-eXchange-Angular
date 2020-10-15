@@ -6,7 +6,7 @@ import { PublicHealthMeasures } from './_models/datas';
   selector: 'app-widget',
   template: `
     <div>
-      <h3>{{stateMeasureData?.region}} Statistics</h3>
+      <h3 >{{stateMeasureData?.region}} Statistics</h3>
       <mat-list>
         <mat-list-item>
           At least One Measure
@@ -30,7 +30,7 @@ import { PublicHealthMeasures } from './_models/datas';
       </mat-list>
     </div>
   `,
-  styles: [],
+  styles: ['h3 {font-weight: bold}','mat-list-item {font-weight: bold}'],
 })
 export class WidgetComponent implements OnInit {
   public stateMeasureData: PublicHealthMeasures = null;
